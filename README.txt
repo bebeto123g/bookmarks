@@ -20,3 +20,9 @@ git log
 git remote add origin https://github.com/bebeto123g/test_git_udemi.git
 git branch -M master
 git push -u origin master
+
+git commit -a -m "комментарий"
+
+git push  // добавляем сразу на хаб
+
+через три звезды установил github расширения, сделал токен через настройки, потом git push и снова через три звезды ввел токен и установл gnome-keying? и вроде даже заработало :Ъ
