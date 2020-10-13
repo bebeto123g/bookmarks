@@ -35,3 +35,12 @@ $ git config credential.helper store
 $ git push http://example.com/repo.git
 Username: <type your username>
 Password: <type your password>
+
+Для работы с разных устройств:
+к примеру!
+git clone https://github.com/bebeto123g/medium.git
+
+git add -A
+git commit -a -m"типа сделали изменения на другом устройстве"
+
+git pull - синхронизация с github
