@@ -1,5 +1,6 @@
 git init
 git config --local user.name "Pupkin"
+git config --global user.name "Pupkin" если сделать для всех будущих проектов и забыть
 git config --local user.email "bebeto123@live.ru"
 git status
 git add -A    // добавит все содержимое
