@@ -27,3 +27,11 @@ git commit -a -m "комментарий"
 git push  // добавляем сразу на хаб
 
 через три звезды установил github расширения, сделал токен через настройки, потом git push и снова через три звезды ввел токен и установл gnome-keying? и вроде даже заработало :Ъ
+
+
+Вы можете сохранить свои учетные данные и не вводить постоянно логин и пароль
+
+$ git config credential.helper store
+$ git push http://example.com/repo.git
+Username: <type your username>
+Password: <type your password>
