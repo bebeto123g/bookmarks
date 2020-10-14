@@ -1,3 +1,5 @@
+json-server db.json --static ./some-other-dir
+
 git init
 git config --local user.name "Pupkin"
 git config --global user.name "Pupkin" если сделать для всех будущих проектов и забыть
