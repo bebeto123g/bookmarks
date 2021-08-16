@@ -1,0 +1,25 @@
+.wave-element {
+    position: relative;
+    overflow: hidden;
+
+    &__circle {
+        position: absolute;
+        border-radius: 50%;
+        transform: scale(0);
+        animation: wave-circle 1s linear;
+        background-color: rgba($main-color, 0.25);
+    }
+
+    &--light {
+        .wave-element__circle {
+            background-color: rgba($white, 0.7);
+        }
+    }
+}
+
+@keyframes wave-circle {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
