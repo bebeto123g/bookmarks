@@ -1,5 +1,4 @@
 .wave-element {
-    position: relative;
     overflow: hidden;
 
     &__circle {
@@ -8,6 +7,7 @@
         transform: scale(0);
         animation: wave-circle 1s linear;
         background-color: rgba($main-color, 0.25);
+        z-index: 100;
     }
 
     &--light {
@@ -23,5 +23,6 @@
         opacity: 0;
     }
 }
+
 
 // cubic-bezier(0.19, 1, 0.22, 1) оч резкий кубик
