@@ -1,24 +1,25 @@
-function createWaveCircle(event) {
-    const element = event.currentTarget;
-
-    const circle = document.createElement('span');
+function createWaveCircle(element, event) {
     const diameter = Math.max(element.clientWidth, element.clientHeight);
     const radius = diameter / 2;
 
+    let circle = element.querySelector('.wave-element__circle');
+    if (!circle) {
+        circle = document.createElement('span');
+        circle.classList.add('wave-element__circle');
+        element.appendChild(circle);
+    }
+
+    circle.style.display = 'none';
     circle.style.width = circle.style.height = `${diameter}px`;
     circle.style.left = `${event.pageX - element.offsetLeft - radius}px`;
     circle.style.top = `${event.pageY - element.offsetTop - radius}px`;
-    circle.classList.add('wave-element__circle');
-
-    const waveElement = element.querySelectorAll('.wave-element__circle')[0];
-
-    if (waveElement) {
-        waveElement.remove();
-    }
-
-    element.appendChild(circle);
+    circle.style.display = 'block';
 }
 
-document.querySelectorAll('.wave-element').forEach((el) => {
-    el.addEventListener('pointerup', createWaveCircle);
+document.addEventListener('pointerup', (event) => {
+    const wave = event.target.closest('.wave-element');
+    if (wave) {
+        createWaveCircle(wave, event);
+    }
 });
+
