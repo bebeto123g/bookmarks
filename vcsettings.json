@@ -1,0 +1,148 @@
+{
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+
+    "editor.wordWrap": "on",
+    "editor.renderWhitespace": "boundary",
+    "editor.minimap.enabled": true,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.glyphMargin": false,
+    "editor.renderIndentGuides": true,
+    "editor.formatOnSave": false,
+    "editor.renameOnType": true,
+    "editor.renderControlCharacters": true,
+    "editor.rulers": [100, 110],
+    "editor.tabSize": 4,
+    "editor.lineHeight": 24,
+    "editor.fontSize": 19,
+    "editor.fontLigatures": true,
+    // "editor.fontFamily": "'JetBrains Mono NL'",
+    "editor.fontFamily": "'Fira Code'",
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": true,
+    "editor.bracketPairColorization.enabled": true,
+
+    "workbench.sideBar.location": "left",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Dainty – Material Theme",
+
+    "gulp.autoDetect": "on",
+    "html.format.contentUnformatted": "",
+    "window.menuBarVisibility": "toggle",
+    "jsannotations.enabled": false,
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "git.autofetch": true,
+    "sync.gist": "4cfe81ae09625d16e45b864ebe88892f",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "breadcrumbs.enabled": true,
+
+    "files.trimTrailingWhitespace": true,
+    "files.autoSave": "onFocusChange",
+
+    "terminal.integrated.fontSize": 17,
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.integrated.fontFamily": "NotoSansMono Nerd Font",
+
+    "emmet.showSuggestionsAsSnippets": true,
+    "emmet.includeLanguages": {
+        "vue-html": "html",
+        "javascript": "javascriptreact",
+        "typescript": "typescriptreact"
+    },
+
+    "sass.format.debug": true,
+    "sass.lint.enable": true,
+
+    "liveServer.settings.donotShowInfoMsg": true,
+    "liveServer.settings.donotVerifyTags": true,
+
+    "liveSassCompile.settings.generateMap": true,
+    "liveSassCompile.settings.autoprefix": null,
+    "liveSassCompile.settings.formats": [
+        // {
+        //     "format": "expanded",
+        //     "extensionName": ".css",
+        //     "savePath": null
+        // },
+        {
+            "format": "compressed",
+            "extensionName": ".min.css",
+            "savePath": "~/css"
+        }
+    ],
+
+    "eslint.format.enable": true,
+    "eslint.lintTask.enable": true,
+    "eslint.alwaysShowStatus": true,
+    "eslint.codeAction.showDocumentation": {
+        "enable": true
+    },
+
+    "prettier.singleQuote": true,
+    "prettier.semi": true,
+    "prettier.vueIndentScriptAndStyle": true,
+    "prettier.printWidth": 110,
+    "prettier.tabWidth": 4,
+
+    "javascript.suggest.autoImports": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+
+    "typescript.suggest.autoImports": true,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+
+    "[html]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[vue]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[less]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[scss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[sass]": {
+        "editor.defaultFormatter": "syler.sass-indented"
+    },
+    "auto-close-tag.activationOnLanguage": [
+        "xml",
+        "php",
+        "blade",
+        "ejs",
+        "jinja",
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "plaintext",
+        "markdown",
+        "vue",
+        "liquid",
+        "erb",
+        "lang-cfml",
+        "cfml",
+        "HTML (EEx)",
+        "HTML (Eex)",
+        "plist"
+    ]
+}
