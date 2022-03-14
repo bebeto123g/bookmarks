@@ -1,5 +1,8 @@
 json-server db.json --static ./some-other-dir
 
+python3 -m http.server 8000 --bind 127.0.0.1
+в локальной папке
+
 git init
 git config --local user.name "Pupkin"
 git config --global user.name "Pupkin" если сделать для всех будущих проектов и забыть
