@@ -2,6 +2,7 @@ json-server db.json --static ./some-other-dir
 
 python3 -m http.server 8000 --bind 127.0.0.1
 в локальной папке
+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
 
 git init
 git config --local user.name "Pupkin"
