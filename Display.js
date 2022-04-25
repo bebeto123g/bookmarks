@@ -44,9 +44,9 @@ class Display {
     static getTypeDisplayWidth() {
         switch (true) {
             case Display.isMobile():
-                return Display.MOBILE;
+                return Display.SMALL_MOBILE;
             case Display.isSmallTablet():
-                return Display.SMALL_TABLET;
+                return Display.MOBILE;
             case Display.isTablet():
                 return Display.TABLET;
             case Display.isSmallDesktop():
