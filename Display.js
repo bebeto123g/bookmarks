@@ -61,4 +61,8 @@ class Display {
     static isMinWidthBreakpoint(display) {
         return window.innerWidth < Display.BREAKPOINT[display];
     }
+
+    static isMaxWidthBreakpoint(display) {
+        return window.innerWidth > Display.BREAKPOINT[display];
+    }
 }
