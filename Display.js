@@ -6,46 +6,46 @@ class Display {
     static DESKTOP = 'desktop';
 
     static BREAKPOINT = {
-        [Display.MOBILE]: 500,
-        [Display.TABLET]: 640,
+        [Display.MOBILE]: 576,
+        [Display.TABLET]: 768,
         [Display.SMALL_DESKTOP]: 992,
         [Display.DESKTOP]: 1200,
     };
 
-    static isMobile() {
+    static isSmallMobile() {
         return window.innerWidth < Display.BREAKPOINT[Display.MOBILE];
     }
 
-    static isSmallTablet() {
+    static isMobile() {
         return (
-            window.innerWidth > Display.BREAKPOINT[Display.MOBILE] &&
+            window.innerWidth >= Display.BREAKPOINT[Display.MOBILE] &&
             window.innerWidth < Display.BREAKPOINT[Display.TABLET]
         );
     }
 
     static isTablet() {
         return (
-            window.innerWidth > Display.BREAKPOINT[Display.TABLET] &&
+            window.innerWidth >= Display.BREAKPOINT[Display.TABLET] &&
             window.innerWidth < Display.BREAKPOINT[Display.SMALL_DESKTOP]
         );
     }
 
     static isSmallDesktop() {
         return (
-            window.innerWidth > Display.BREAKPOINT[Display.SMALL_DESKTOP] &&
+            window.innerWidth >= Display.BREAKPOINT[Display.SMALL_DESKTOP] &&
             window.innerWidth < Display.BREAKPOINT[Display.DESKTOP]
         );
     }
 
     static isDesktop() {
-        return window.innerWidth > Display.BREAKPOINT[Display.DESKTOP];
+        return window.innerWidth >= Display.BREAKPOINT[Display.DESKTOP];
     }
 
     static getTypeDisplayWidth() {
         switch (true) {
-            case Display.isMobile():
+            case Display.isSmallMobile():
                 return Display.SMALL_MOBILE;
-            case Display.isSmallTablet():
+            case Display.isMobile():
                 return Display.MOBILE;
             case Display.isTablet():
                 return Display.TABLET;
