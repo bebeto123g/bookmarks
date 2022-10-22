@@ -1,10 +1,6 @@
 /**
- * картинки с data-src
+ * Имеется картинки с data-src
  * */
-
-const options = {
-    rootMargin: '50px 0 0', // пересечение срабатываия
-};
 
 const callback = (entries, observer) => {
     console.log(entries);
@@ -17,12 +13,15 @@ const callback = (entries, observer) => {
     });
 };
 
-const imageObserver = new IntersectionObserver(callback, options);
+const imageObserver = new IntersectionObserver(callback, {
+    rootMargin: '50px 0 0', // пересечение срабатываия
+});
 
 document.querySelectorAll('[data-src]').forEach((elemet) => {
     imageObserver.observe(elemet);
 });
-========================================================================
+
+// ========================================================================
 
 const observer = new IntersectionObserver(observerCallback, { threshold: 0.1 });
 

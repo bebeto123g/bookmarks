@@ -1,3 +1,9 @@
+/**
+ * Wave эффект как в материал у гугла, есть косяки
+ *
+ * @param {DOMElement} element DOMElement
+ * @param {Event} event
+ */
 function createWaveCircle(element, event) {
     const diameter = Math.max(element.clientWidth, element.clientHeight);
     const radius = diameter / 2;
