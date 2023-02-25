@@ -2,6 +2,11 @@ import { combineReducers } from 'redux'
 import { connectRouter } from 'connected-react-router'
 import { phonesReducer } from './phonesReducer'
 import { phonesPageReducer } from './phonesPageReducer'
+import { createStore, applyMiddleware } from 'redux'
+import { createBrowserHistory } from 'history'
+import { composeWithDevTools } from 'redux-devtools-extension'
+import { routerMiddleware } from 'connected-react-router'
+import thunk from 'redux-thunk'
 
 export const rootReducer = (history) =>
     combineReducers({
@@ -9,14 +14,6 @@ export const rootReducer = (history) =>
         phonesReducer,
         phonesPageReducer,
     })
-
-import { createStore, applyMiddleware } from 'redux'
-import { createBrowserHistory } from 'history'
-import { composeWithDevTools } from 'redux-devtools-extension'
-import { routerMiddleware } from 'connected-react-router'
-import thunk from 'redux-thunk'
-
-import { rootReducer } from './reducers'
 
 export const history = createBrowserHistory()
 
