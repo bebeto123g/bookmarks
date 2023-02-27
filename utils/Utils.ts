@@ -1,3 +1,14 @@
+const INTL_DATE_FORMAT_SETTINGS = {
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric',
+} as const;
+
+const INTL_TIME_FORMAT_SETTINGS = {
+    hour: 'numeric',
+    minute: 'numeric',
+} as const;
+
 export class Utils {
     /** Утилита для динамической генерации классов */
     static classnames(props: Record<string, string | boolean>): string {
@@ -10,24 +21,32 @@ export class Utils {
         return arr.join(' ');
     }
 
+    /** Утилита форматирования дат */
+    static formatDate(date: Date, settings: { date?: boolean; time?: boolean } = { date: true }): string {
+        return new Intl.DateTimeFormat('ru', {
+            ...(settings.date ? INTL_DATE_FORMAT_SETTINGS : null),
+            ...(settings.time ? INTL_TIME_FORMAT_SETTINGS : null),
+        }).format(date);
+    }
+
     /** Утилита предотвращения повторной активации функции в результате быстрой серии событий */
-    static debounce(func: Function, delay = 300) {
+    static debounce(callback: Function, delay = 300) {
         let timeout;
         return function () {
             const context = this;
             const args = arguments;
             clearTimeout(timeout);
-            timeout = setTimeout(func.bind(context, args), delay);
+            timeout = setTimeout(callback.bind(context, args), delay);
             // timeout = setTimeout(() => func.apply(context, args), delay);
         };
     }
 
     /** Утилита ограничивает скорость, с которой выполняется функция */
-    static throttle(func: Function, delay = 300) {
+    static throttle(callback: Function, delay = 300) {
         let wait = false;
         return (...args) => {
             if (wait) return;
-            func(...args);
+            callback(...args);
             wait = true;
             setTimeout(() => {
                 wait = false;
@@ -36,12 +55,12 @@ export class Utils {
     }
 
     /** Утилита предотвратит выполнение, если метод уже вызван */
-    static once(func: Function) {
+    static once(callback: Function) {
         let ran = false;
         let result;
         return function () {
             if (ran) return result;
-            result = func.apply(this, arguments);
+            result = callback.apply(this, arguments);
             ran = true;
             return result;
         };
@@ -52,37 +71,37 @@ export class Utils {
      * чтобы предотвратить многократный вызов дорогостоящих в вычислительном отношении
      * подпрограмм с одними и теми же аргументами
      * */
-    static memoize(func: Function) {
+    static memoize(callback: Function) {
         const cache = new Map();
         return function () {
             const key = JSON.stringify(arguments);
             if (cache.has(key)) {
                 return cache.get(key);
             }
-            const result = func.apply(this, arguments);
+            const result = callback.apply(this, arguments);
             cache.set(key, result);
             return result;
         };
     }
 
     /** Утилита возвращает результат мгновенно вместо возврата другой функции по currying-цепочке */
-    static partial(func: Function, ...args: Array<unknown>) {
+    static partial(callback: Function, ...args: Array<unknown>) {
         return function partiallyApplied(...moreArgs: Array<unknown>) {
-            return func(...args, ...moreArgs);
+            return callback(...args, ...moreArgs);
         };
     }
 
     /** Утилита для объединения в цепочку нескольких функций и передачи выходных данных одной из них */
-    static pipe(...funcs: Array<Function>) {
+    static pipe(...callbacks: Array<Function>) {
         return function piped(...args: Array<unknown>) {
-            return funcs.reduce((result, func) => [func.call(this, ...result)], args)[0];
+            return callbacks.reduce((result, callback) => [callback.call(this, ...result)], args)[0];
         };
     }
 
     /** Утилита с функциональностью pipe, но функции будут применяться справа налево */
-    static compose(...funcs: Array<Function>) {
+    static compose(...callbacks: Array<Function>) {
         return function composed(...args: Array<unknown>) {
-            return funcs.reduceRight((result, func) => [func.call(this, ...result)], args)[0];
+            return callbacks.reduceRight((result, callback) => [callback.call(this, ...result)], args)[0];
         };
     }
 
