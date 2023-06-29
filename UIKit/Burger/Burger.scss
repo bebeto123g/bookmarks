@@ -1,0 +1,59 @@
+@import "src/styles/services/common";
+
+$color: color(header, black);
+$burger-main: 16px;
+// FIXME размеры поправить на мобилку, если будет время
+
+$burger-size: 3 * $burger-main;
+$burger-line-width: 1.6 * $burger-main;
+$burger-line-height: 2 * $burger-main/10;
+$burger-gap: $burger-main - $burger-line-height * 3;
+$transition-time: 0.3s;
+
+.burger {
+    @include reset-button;
+    width: $burger-size;
+    height: $burger-size;
+    position: relative;
+    cursor: pointer;
+    border: 1px solid color(border, gray);
+    border-radius: 50%;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        width: $burger-line-width;
+        height: $burger-line-height;
+        background-color: $color;
+        transition: $transition-time ease;
+        top: 47%;
+        left: 22.5%;
+        z-index: 10;
+        border-radius: $burger-main / 10;
+    }
+
+    &::before {
+        transform: translateY(-$burger-gap);
+        box-shadow: 0 $burger-gap 0 $color;
+    }
+
+    &::after {
+        transform: translateY($burger-gap);
+    }
+
+    &.active {
+        &::before {
+            transform: translateY(0) rotate(45deg);
+            box-shadow: 0 0 0 $color;
+        }
+
+        &::after {
+            transform: translateY(0) rotate(-45deg);
+        }
+    }
+
+    &--visible {
+        display: block;
+    }
+}

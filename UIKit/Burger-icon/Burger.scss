@@ -1,0 +1,65 @@
+@import "src/utils/vars";
+
+.burger {
+  cursor: pointer;
+  display: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  position: relative;
+  transition: .3s;
+  margin: 0;
+
+  @media screen and (max-width: $DESKTOP_WIDTH){
+    display: block;
+  }
+
+  span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    transition: all .3s ease;
+    background: url("./icon/top.svg") no-repeat;
+
+    &:first-child, &:last-child {
+      content: "";
+      display: block;
+      transition: 0.8s;
+    }
+
+    &, &:first-child, &:last-child {
+      position: absolute;
+      top: calc(50% - 1px);
+      left: calc(50% - 11px);
+      width: 22px;
+      height: 3px;
+    }
+
+    &:first-child {
+      background: url("icon/top.svg") no-repeat;
+      transform: translateY(-6px);
+    }
+
+    &:last-child {
+      background: url("./icon/bottom.svg") no-repeat;
+      transform: translateY(6px);
+    }
+  }
+
+  &.active {
+    span {
+      &:first-child {
+        transform: rotate(45deg);
+      }
+
+      &:nth-child(2) {
+        transform: translateX(-10px);
+        opacity: 0;
+      }
+
+      &:last-child {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}
