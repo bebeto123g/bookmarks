@@ -9,9 +9,11 @@ const INTL_TIME_FORMAT_SETTINGS = {
     minute: 'numeric',
 } as const;
 
+type TClassnamesProp = Record<string, string | boolean>;
+
 export class Utils {
     /** Утилита для динамической генерации классов */
-    static classnames(props: Record<string, string | boolean>): string {
+    static classnames(props: TClassnamesProp): string {
         const arr: Array<string> = [];
         Object.entries(props).forEach(([key, value]) => {
             if (value) {
@@ -19,6 +21,25 @@ export class Utils {
             }
         });
         return arr.join(' ');
+    }
+
+    /** Утилита для динамической генерации классов */
+    static classnames2(props: TClassnamesProp | Array<string | TClassnamesProp>): string {
+        function entriesToString(obj: TClassnamesProp): string {
+            return Object.entries(obj).reduce<string>(
+                (acc, [key, value]) => (value ? `${key} ${acc}` : acc).trim(),
+                ''
+            );
+        }
+
+        if (!Array.isArray(props)) {
+            return entriesToString(props);
+        }
+
+        return props.reduce<string>((acc, item) => {
+            const className: string = typeof item === 'string' ? item : entriesToString(item);
+            return (className ? `${className} ${acc}` : acc).trim();
+        }, '');
     }
 
     /** Утилита форматирования дат */
