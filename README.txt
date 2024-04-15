@@ -5,9 +5,9 @@ python3 -m http.server 8000 --bind 127.0.0.1
 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
 
 git init
-git config --local user.name "Pupkin"
+git config --local user.name "bebeto123"
 git config --global user.name "Pupkin" если сделать для всех будущих проектов и забыть
-git config --local user.email "bebeto123@live.ru"
+git config --local user.email "bebeto123@mail.ru"
 git status
 git add -A    // добавит все содержимое
 git add index.html   // по файлу
